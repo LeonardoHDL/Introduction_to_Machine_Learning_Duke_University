@@ -1,0 +1,40 @@
+Deep learning is a very important area of machine learning.
+So now, what we're going to do here is the same thing we did before but we're going to do it twice. So, starting at the bottom, X is our feature vector. It has M components. So X_i, which is the ith data sample has M features which are represented X_i1, X_i2, through X_iM. Those are the features of our data. Each of the features of the data is multiplied by a parameter vector B, and summed together. 
+We do this K times for K different templates, B_1 through B_K. Then after sending that through a logistic function, we get the probability of each of those K latent features, and that probability is a number between zero one is binary. Then what we're going to do is instead of going directly into the logistic regression to make a binary classification, what we're going to do now is predict what we call layer two latent processes. This is what refers as deep because now you have these two latent processes again represented as a probability and then at the end now you perform the logistic regresssion to get a binary response.
+
+Deep learning is a form if machine learning where the model has multiple layer of latent process.
+These model is called a multilayer perceptron can actually be called a neural network
+
+--------------------------------------------------------------------
+###What do we mean with latent features and latent processses
+
+So, let's assume that our job is to analyze documents. So, here a document is just a set of words. So remember that x_i is a vector which represents a set of features for the ith data of interest. For us now in this example, what we mean is that x_i represents the features of document i, here in the context of document analysis. 
+So, assume that we're given a document, and let's assume that we have a vocabulary that is composed of V words, so the vocabulary size is V. What we're going to do to characterize a given document, the document i, is simply count the number of times each word appears in the document.
+
+So, what we would like to do is given the document, and given the words in the document, we want to make a prediction about whether a given person will like the document or find it interesting or whether they will dislike it. (binary response) like it=1
+
+So, that data is used to teach the model or to teach the algorithm, and when we talk about learning, what we mean by learning, is learning the parameters of our model. 
+So, in this case, we're going to assume that we have N documents represented by X_1, X_2 through X_N. Each document has z features representing the count of each word.
+
+###How to solve it?
+With a multilayered perceptron!!!
+So, let's look at what's going on for the first layer. So, remember what we're going to do is logistic regression essentially K times. So, the data xi are the counts of words for the ith document and b1, b2, bK are templates with which we take the inner product between xi in each of those templates b1, b2, through bK. when referring to "templates" in the context of logistic regression, it likely means the weight parameters associated with each input feature. Specifically, the templates b1, b2, ..., bK represent the weight vectors for each class in a multiclass logistic regression problem.
+During the training process, the model iteratively updates the weights to minimize a loss function, which measures the difference between the predicted outputs and the actual class labels in the training data. This process is often done using optimization algorithms like gradient descent.
+
+
+So, the question is, in the context of this example, what might b1 through bK represent? What might those templates mean?
+So, there might be some latent topics that are characteristic of the documents. So, remember, we get to see the words, and then there are latent processes in the data or here in the document that we don't explicitly get to see.
+So, the way that we might think about this is that b1, which is the first filter, might be representative of words that are characteristic of a particular topic, for example, sports. So, therefore, in our vocabulary of v words, there might be a subset of words that have high likelihood of appearing when the subject is sports.
+So, what we would expect is that the template b1 or the filter b1, with which we take the inner product of the data, if that filter is characteristic of the latent topic, sports. We would expect that that template b1 will have high values for words that are characteristic of sports and would basically have zero values for components which correspond to words that have nothing to do with sports.
+As another example, b2, which corresponds to the second latent process may correspond to a topic corresponding to history. So, then in that case, we would expect that the template b2 would have high values for words that are associated with history and essentially zero values for words that have nothing to do with history.
+
+So, the features that come out of the first layer of our model, represent given the words that we see in our feature vector, what is the probability that this document is about sports?
+What is the probability from zero to one, that this document is about history? What is the probability from zero to one that this document is about politics? Those are the k latent or can be thought of as the k latent processes or features that come out of the first layer of our model.
+
+
+So, now we go to the second layer. Now, we're going to do the same thing. We're going to take the outputs of the first layer which are represented as Sigma Zi, which represent the features that come out of the first layer Zi that then go through the Sigmoid function which turn it into a probability from zero to one.
+We play exactly the same game, we take those features and now multiply them by layer two filters, which we'll represent as C1, C2 through CJ. So, in this case, J filters that were manifesting. So, what do these filters represent? Well, these filters might emphasize certain features from layer one, and remember the features from layer one correspond to topics. 
+So therefore, we could think of the filters C1 through CJ representing meta-topics, which means combinations of topics from layer one. So remember, the layer one topics correspond to things like sports, history, politics. The layer two filters, Z1 through CJ, are basically providing waiting on the layer one features. So, for example, the template C1 may have high strength for the features at layer one that correspond to the topics from sports and the topic from history. 
+
+Then finally, when we get to the top, this logistic regression at the top, what we're doing is we're making a decision and we're asking the question, given the meta-topics that seemed to be apparent characteristic of the latent features at layer two, what is the probability that the person of interest is going to like the document or not? 
+So, again if we look at what this layer two meta-topics represent, if a person is interested in the history of sports, then we would expect that if the filters Z1, when we take the inner product of the features Sigma Zi with filters C1, if C1 is characteristic of sports and history, and if the person of interests likes the history of sports, then we would expect that the filter at layer three D, that filter D would look for the situation in which meta-topics associated with the history of sports was high.

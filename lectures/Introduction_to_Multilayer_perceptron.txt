@@ -1,0 +1,17 @@
+Multilayer perceptron is a direct or natural xtesion from logistic regression.
+Recall the basic structure of the logistic regression with values:
+Zi=b0+b1Xi1....bnXiM
+Where we apply a sigmoid function to Zi to obtain a probability between 0 and 1.
+
+A multilayer perceptron is the same concept as a logistic regression, but instead of doing it one time, we're going to do it k times, and so now, what we're doing is we're doing effectively K implementations of what we did with logistic regression, which are going to map the data x to a k dimensional vector, which is represented by the probability from zero to one of what we call k latent processes or features associated with the data. These are called latent because these are representative of things that in the data characteristics of the data, we cannot in principle observe.
+
+Then those k latent features are sent through a logistic regression model to ultimately yield a binary probability for the classification of the data, and so this is very much like logistic regression but what we have done is introduced instead of doing logistic regression directly from the data to the binary outcome, what we're doing is we're doing logistic regression, we're first going from the data to k latent processes or the probabilities on those k latent processes and then that corresponds to a k dimensional feature vector and then that k dimensional feature vector is used to apply logistic regression, which is then ultimately yields a outcome, the probability that the data corresponds to class y equal to one.
+
+We can see multilayer perceptron as a logistic regression on k latent features, rather than directly on the M components of raw data.
+---------------------------------------------------------------------
+#####Multilayer perceptron Math model
+
+The idea in the multilayer perceptron is that instead of just projecting the data xi with one template vector as we did in logistic regression, what we're going to do is consider k filters or reference factors b1 through bk, and we're going to take xi, and we're going to take the inner product of xi with b1, xi with b2, and all the way to xi with bk, inner product with bk. So, the way to think about this is that we have a data xi, and then there are k latent features or processes that are responsible, or at least from a modeling perspective are represented as being responsible for the data.
+
+
+
