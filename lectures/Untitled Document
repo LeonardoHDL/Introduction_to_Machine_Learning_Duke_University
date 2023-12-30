@@ -1,0 +1,48 @@
+#Introduction to the concept of word vectors
+
+Each word in vocabulary is mapped to a point in a 2D space
+
+If two words are close they will be more related or synonymous
+
+If two words are further apart they will be more dissimilar
+
+For example lets suppose a 2d space composed of X and Y, if two words are similar, they will be close in the space:
+
+1. lawyer (79,36)
+2. Attorney (79,35)
+3. apple (10,5)
+4. bannana (9,6)
+
+This is the basic concept of the space spanned by the word vector process.
+
+We have to consider that words are not number and not suited for computation.
+To solve this we have to map each word to a vector, vectors may be more than 2 dimentions. In machine learning the model is gonna learn the mapping of every word vector.
+--------------------------------------------------------------------
+##Words to vectors
+WORDS are not NUMBERS, we need a way to convert a word to a number
+
+Each of the vectors that are associated with a given word is often referred to as embedding
+The idea to to embed to word onto a feature space
+
+w(i)=ith word in our vocabulary, the idea is to take the ith word to a n dimensional vector.
+Lets suppose w1, w2, w3...w(v) which refers to the whole vocabulary
+then the mapping. when we embed the word the vector C1 will be the vector associated with the word w1, c2 to w2, etc...
+
+we then manifest a codebood which is a set of c(v) vectors associated with our vocabulary.
+
+We desire to have two similar words to in close proximity to each other.
+
+But how do we learn these word vectors
+---------------------------------------------------------------------
+#Example of word embeddings
+How can we use CNNs in NLP?
+
+So, let's assume that we have a document, which is composed of N words, a sequence of N words. W_1, W_2, W_3 to W_N through this Word2Vec concept, those N words will be mapped to N m- dimensional vectors. So, what we would like to do is apply, the concept of a CNN, a Convolutional Neural Network.
+So, what we're going to do, if you recall the the Convolutional Neural Network, which we've considered elsewhere in the context of images, now we're going to consider the Convolutional Neural Network in the context of text.
+Here, we're going to consider filters, each of which is m by m times d in size. So, m corresponds to the dimension of the vector, and d corresponds to the number of words, the length, the number of words in the filter.
+
+Then what we're gonna do is, we're gonna take that filter and shifted through our text. Whenever the filter, the concept reflected in the filter of three consecutive words is aligned or related to the associated taxed at the corresponding shift location in that text, we would expect a high correlation or connection between the filter and the text. So, through this process, we're going to take each of our k filters, and we're going to shift it to each possible location in our text.
+
+So, through this process, we're going to take each of our k filters, and we're going to shift it to each possible location in our text. For every shift location, we're going to get a number, and that number is reflective of the match between the filter and the text. 
+
+At the end we will use a multilayer perceptron or a logistic regression to make a classifcation

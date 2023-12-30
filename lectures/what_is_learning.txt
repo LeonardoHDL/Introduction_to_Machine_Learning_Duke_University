@@ -1,0 +1,73 @@
+How can we define learning mathematically?
+
+-The network learns the parameters (b1, b2...bk)
+
+Given training data, anda model to fit, how do we learn the parameters? We wan them to predcit accurately.
+
+-We want to learn parameters to give us the best performance
+But what is performance?
+
+ -Empirical Risk Minimization
+Empirical Risk Minimization is jargon in the machine learning field and we'll talk about what it actually means. But what we're going to have here, is we're going to have a loss function and a loss function is going to take two inputs. It's going to have a true value or true outcome and it's also going to have our prediction and this loss function is going to define a penalty on a poor prediction.
+
+If we have a good prediction we will have no loss, but what is 
+loss?
+
+b* (Optimal parameters)
+This optimal parameter is going to be the argument of the minimum of one over N, the sum over all of our data points and it's going to be for each data point we have our loss function, we have our true label and we have our guess, right? So, this guess the sigma zi here, the sigma zi comes from our logistic regression model and we have the parameters b a little bit hidden here, but zi is dependent on parameters b, so our parameters b are actually going to choose, what we're guessing for each of these
+
+What is a loss function?
+So we can view this loss function, we can view this as the negative log-likelihood, the log-likelihood is widely used in statistics, generally in statistics, we're trying to do a maximum log-likelihood. 
+
+When we talk about losses we're trying to minimize a loss, so we just take the negative of the log-likelihood. So, we say that, the loss of our true outcome and our predicted probability is just equivalent to its negative log-likelihood
+
+
+----------------------------------------------------------------
+How do we evaluate our network?
+
+Complex models capture complex relationships
+
+Complex models can behave well in training dataset, but in real world they become useless
+
+What is overfitting?
+
+Overfitting is when the learned model increases complexity to fi tthe observed training data too well.
+
+Overtiftting can actually fit our training perfectly but that doesn't mean neither is a good model or that it will make good predictions
+Overfitting is due to incresing complexity of our model
+.
+
+Increasing parameters increses error rate
+-Complex relationships may be too complex for reality.
+
+But how can we validate that our model works?
+The gold standars would be to validate our data in real world data, but these is not always possible due to several factors.
+
+We can use our available data smartly and work with it to validate our model.
+
+This can be done through cross validation in our dataset which can be done by splitting our data into trainin, validation and testing.
+
+
+test set will never be used to learn or fit any parameters
+Should ideally be used once 
+reusing a test set will lead us to bias which could lead to a optimistic performance esimate.
+
+A validation set can be used to compare which approach is best
+Not used to learn parameters
+Can be used used repeatedly to estimate the performance of a model
+can be used to pick out the best performance model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

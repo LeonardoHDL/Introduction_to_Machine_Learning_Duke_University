@@ -1,0 +1,16 @@
+Gradient descent is an incredible famous mathematical optimization model
+
+Gradient descent works with a mathematical function (such as the -log likelyhood function (loss function))
+
+we have to come with a algorithm that can give us the minimun values for the loss function.
+
+Lets suppose the function where the objective is:
+ minimize b*= arg min f(b)
+It starts at b0 and then run a series of updates to move from bk to bk+1 and then iteratively run the procedure
+This can be done by calculating the slope at the current point
+For one parameter= derivative
+for multiple parameters we calculate the grandient (multiple slopes)
+
+Then we will move in the direction of negative gradient with step size a^k
+
+and then run the update bk+1=bk-a^k of our gradient
